@@ -1,75 +1,40 @@
 'use strict';
 
-console.log('App.js is running!');
+// argument objects - no longer bound with arrow functions
 
-var app = {
-  title: 'Indecision App',
-  subtitle: 'This is some info',
-  options: ['One', 'Two']
+var add = function add(a, b) {
+  // console.log(arguments);
+  return a + b;
 };
+console.log(add(55, 1));
 
-var template = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    app.title
-  ),
-  app.subtitle && React.createElement(
-    'p',
-    null,
-    app.subtitle
-  ),
-  app.options.length > 0 ? 'Here are your options' : 'No Options',
-  React.createElement(
-    'ol',
-    null,
-    React.createElement(
-      'li',
-      null,
-      'Item one'
-    ),
-    React.createElement(
-      'li',
-      null,
-      'Item two'
-    )
-  )
-);
+// this keyword - no longer bound 
 
 var user = {
-  name: 'Kana',
-  age: 27,
-  location: 'Japan'
-};
-function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      'p',
-      null,
-      'location: ',
-      location
-    );
+  name: 'Andrew',
+  cities: ['Philadelphia', 'New York', 'Dublin'],
+  printPlaceLived: function printPlaceLived() {
+    var _this = this;
+
+    return this.cities.map(function (city) {
+      return _this.name + ' has lived in ' + city;
+    });
   }
-}
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    user.name ? user.name : 'Anonymous'
-  ),
-  user.age && user.age >= 18 && React.createElement(
-    'p',
-    null,
-    'Age: ',
-    user.age
-  ),
-  getLocation(user.location)
-);
+};
 
-var appRoot = document.getElementById('app');
+console.log(user.printPlaceLived());
 
-ReactDOM.render(template, appRoot);
+// Challenge
+var multiplier = {
+  numbers: [10, 20, 30],
+  multiplyBy: 3,
+  multiply: function multiply() {
+    var _this2 = this;
+
+    return this.numbers.map(function (number) {
+      return number * _this2.multiplyBy;
+    });
+  }
+};
+
+console.log(multiplier.multiply());
