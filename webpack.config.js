@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/playground/redux-expensify.js',
+  entry: './src/app.js',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -24,6 +24,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'public') // tell where is public folder
+    contentBase: path.join(__dirname, 'public'), // tell where is public folder
+    historyApiFallback: true
   }
 };

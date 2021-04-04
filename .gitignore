@@ -1,5 +1,11 @@
+# Ignore Code Coverage Results
+/coverage/*
+/public
+.DS_Store
+
 # dependencies
 /node_modules
+
 
 # production
 /build
