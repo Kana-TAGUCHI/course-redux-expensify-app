@@ -1,5 +1,15 @@
+# Ignore Code Coverage Results
+/coverage/*
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
+
+.DS_Store
+
 # dependencies
 /node_modules
+
 
 # production
 /build
