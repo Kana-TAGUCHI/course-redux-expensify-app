@@ -1,4 +1,3 @@
-//entry -> output
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -40,9 +39,9 @@ module.exports = (env) => {
     plugins: [
       CSSExtract
     ],
-    devtool: isProduction ? 'source-map' : 'inline--source-map',
+    devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'), // tell where is public folder
+      contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
       publicPath: '/dist/'
     }
