@@ -23,7 +23,7 @@ export class ExpenseListFilters extends React.Component {
     } else if (e.target.value === 'amount') {
       this.props.sortByAmount();
     }
-  }
+  };
   render() {
     return (
       <div>
@@ -62,7 +62,7 @@ const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAmount: () => dispatch(sortByAmount()),
-  setStartDate: () => dispatch(setStartDate(startDate)),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate))
 });
 
