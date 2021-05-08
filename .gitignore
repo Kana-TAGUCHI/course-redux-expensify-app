@@ -7,6 +7,9 @@ public/dist
 # dependencies
 /node_modules
 
-
 # production
 /build
+
+# config
+.env.test
+.env.development
