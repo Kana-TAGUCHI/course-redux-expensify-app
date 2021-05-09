@@ -1,7 +1,8 @@
 // import * as firebase from 'firebase';
 import firebase from "firebase/app";
 import 'firebase/database';
-import "firebase/analytics";
+import 'firebase/auth'
+import 'firebase/analytics';
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -19,23 +20,25 @@ const config = {
   firebase.analytics();
 
   const database = firebase.database();
+  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-  //child_removed
-  database.ref('expenses').on('child_removed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-  });
+  export { firebase, googleAuthProvider, database as default };
 
-  //child_changed
-  database.ref('expenses').on('child_changed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-  });
+  // //child_removed
+  // database.ref('expenses').on('child_removed', (snapshot) => {
+  //   console.log(snapshot.key, snapshot.val());
+  // });
 
-  //child_added
-  database.ref('expenses').on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-  });
+  // //child_changed
+  // database.ref('expenses').on('child_changed', (snapshot) => {
+  //   console.log(snapshot.key, snapshot.val());
+  // });
 
-  export { firebase, database as default };
+  // //child_added
+  // database.ref('expenses').on('child_added', (snapshot) => {
+  //   console.log(snapshot.key, snapshot.val());
+  // });
+
 
 // // child_removed
 // database.ref('expenses').on('child_removed', (snapshot) => {
